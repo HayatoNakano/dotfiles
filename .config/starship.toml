@@ -1,8 +1,11 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
 format = """
-[](#d0bf08)\
+[ ](fg:bg_left)\
+[ ](bg:bg_left)\
 $os\
 $username\
-[\uE0B8](bg:#404040 fg:#d0bf08)\
+[](bg:bg_center fg:bg_left)\
 $directory\
 $c\
 $elixir\
@@ -12,129 +15,183 @@ $gradle\
 $haskell\
 $java\
 $julia\
+$kotlin\
 $nodejs\
 $nim\
+$python\
 $rust\
 $scala\
-[\uE0B8](fg:#404040 bg:#3a0ccd)\
+[](bg:bg_center fg:bg_right)\
 $git_branch\
 $git_status\
 $docker_context\
-[\uE0B8 ](fg:#3a0ccd)\
+[ ](bg:bg_right)\
+[ ](fg:bg_right)\
 """
 
-# Disable the blank line at the start of the prompt
-# add_newline = false
+palette = 'splatoon1'
 
-# You can also replace your username with a neat symbol like   or disable this
-# and use the os module below
+[palettes.splatoon1]
+bg_left = '#de6624'
+bg_center = '#404040'
+bg_right = '#343bc4'
+fg_left = '#000000'
+fg_center = '#ffffff'
+fg_center_s = '#a0a0a0'
+fg_right = '#ffffff'
+fg_right_s = '#a0a0a0'
+
+[palettes.splatoon2]
+bg_left = '#c12d74'
+bg_center = '#404040'
+bg_right = '#2cb721'
+fg_left = '#000000'
+fg_center = '#ffffff'
+fg_center_s = '#a0a0a0'
+fg_right = '#000000'
+fg_right_s = '#404040'
+
+[palettes.splatoon3]
+bg_left = '#d0bf08'
+bg_center = '#404040'
+bg_right = '#3a0ccd'
+fg_left = '#000000'
+fg_center = '#ffffff'
+fg_center_s = '#a0a0a0'
+fg_right = '#ffffff'
+fg_right_s = '#a0a0a0'
+
 [username]
 show_always = true
-style_user = "bg:#d0bf08 fg:#202020"
-style_root = "bg:#d0bf08 fg:#202020"
+style_user = "bg:bg_left fg:fg_left"
+style_root = "bg:bg_left fg:fg_left"
 format = '[ $user ]($style)'
 disabled = false
 
-# An alternative to the username module which displays a symbol that
-# represents the current operating system
 [os]
-style = "bg:#9A348E fg:#202020"
-disabled = true                 # Disabled by default
+disabled = false
+style = "bg:bg_left fg:fg_left"
+
+[os.symbols]
+Windows = "󰍲"
+Ubuntu = "󰕈"
+SUSE = ""
+Raspbian = "󰐿"
+Mint = "󰣭"
+Macos = "󰀵"
+Manjaro = ""
+Linux = "󰌽"
+Gentoo = "󰣨"
+Fedora = "󰣛"
+Alpine = ""
+Amazon = ""
+Android = ""
+Arch = "󰣇"
+Artix = "󰣇"
+CentOS = ""
+Debian = "󰣚"
+Redhat = "󱄛"
+RedHatEnterprise = "󱄛"
 
 [directory]
-style = "bg:#404040 fg:#ffffff"
+style = "bg:bg_center fg:fg_center"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
 
-# Here is how you can shorten some long paths by text replacement
-# similar to mapped_locations in Oh My Posh:
 [directory.substitutions]
 "Documents" = "󰈙 "
 "Downloads" = " "
 "Music" = " "
 "Pictures" = " "
-# Keep in mind that the order matters. For example:
-# "Important Documents" = " 󰈙 "
-# will not be replaced, because "Documents" was already substituted before.
-# So either put "Important Documents" before "Documents" or use the substituted version:
-# "Important 󰈙 " = " 󰈙 "
+"Developer" = "󰲋 "
+"dev" = "󰲋 "
 
 [c]
 symbol = " "
-style = "bg:#404040"
+style = "bg:bg_center fg:fg_center_s"
 format = '[ $symbol ($version) ]($style)'
-
-[docker_context]
-symbol = " "
-style = "bg:#06969A"
-format = '[ $symbol $context ]($style) $path'
 
 [elixir]
 symbol = " "
-style = "bg:#404040"
+style = "bg:bg_center fg:fg_center_s"
 format = '[ $symbol ($version) ]($style)'
 
 [elm]
 symbol = " "
-style = "bg:#404040"
+style = "bg:bg_center fg:fg_center_s"
 format = '[ $symbol ($version) ]($style)'
-
-[git_branch]
-symbol = ""
-style = "bg:#3a0ccd"
-format = '[ $symbol $branch ]($style)'
-
-[git_status]
-style = "bg:#3a0ccd"
-format = '[$all_status$ahead_behind ]($style)'
 
 [golang]
 symbol = " "
-style = "bg:#404040"
+style = "bg:bg_center fg:fg_center_s"
 format = '[ $symbol ($version) ]($style)'
 
 [gradle]
-style = "bg:#404040"
+style = "bg:bg_center fg:fg_center_s"
 format = '[ $symbol ($version) ]($style)'
 
 [haskell]
 symbol = " "
-style = "bg:#404040"
+style = "bg:bg_center fg:fg_center_s"
 format = '[ $symbol ($version) ]($style)'
 
 [java]
 symbol = " "
-style = "bg:#404040"
+style = "bg:bg_center fg:fg_center_s"
 format = '[ $symbol ($version) ]($style)'
 
 [julia]
 symbol = " "
-style = "bg:#404040"
+style = "bg:bg_center fg:fg_center_s"
+format = '[ $symbol ($version) ]($style)'
+
+[kotlin]
+symbol = ""
+style = "bg:bg_center fg:fg_center_s"
 format = '[ $symbol ($version) ]($style)'
 
 [nodejs]
 symbol = ""
-style = "bg:#404040"
+style = "bg:bg_center fg:fg_center_s"
 format = '[ $symbol ($version) ]($style)'
 
 [nim]
 symbol = "󰆥 "
-style = "bg:#404040"
+style = "bg:bg_center fg:fg_center_s"
+format = '[ $symbol ($version) ]($style)'
+
+[python]
+symbol = ""
+style = "bg:bg_center fg:fg_center_s"
 format = '[ $symbol ($version) ]($style)'
 
 [rust]
 symbol = ""
-style = "bg:#404040"
+style = "bg:bg_center fg:fg_center_s"
 format = '[ $symbol ($version) ]($style)'
 
 [scala]
 symbol = " "
-style = "bg:#404040"
+style = "bg:bg_center fg:fg_center_s"
 format = '[ $symbol ($version) ]($style)'
 
 [time]
 disabled = false
-time_format = "%R"             # Hour:Minute Format
-style = "bg:#33658A"
+time_format = "%R"
+style = "bg:bg_center fg:fg_center_s"
 format = '[ ♥ $time ]($style)'
+
+[git_branch]
+symbol = ""
+style = "bg:bg_right fg:fg_right"
+format = '[  $symbol $branch ]($style)'
+
+[git_status]
+style = "bg:bg_right fg:fg_right"
+format = '[$all_status$ahead_behind ]($style)'
+
+[docker_context]
+symbol = " "
+style = "bg:bg_right fg:fg_right_s"
+format = '[$symbol $context ]($style)'
