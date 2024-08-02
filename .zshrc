@@ -12,8 +12,9 @@ fi
 [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 
 alias ls="eza --icons"
+alias la="ls -a"
+alias ll="la -l"
 alias tree="ls --tree"
-
 
 eval "$(starship init zsh)"
 eval "$(sheldon source)"
